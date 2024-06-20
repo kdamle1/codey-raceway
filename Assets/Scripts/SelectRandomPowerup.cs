@@ -19,12 +19,14 @@ public class SelectRandomPowerup : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "itemBoxes")
         {
             randomNumberInList = Random.Range(0, powerupList.Count);
             chosenPowerup = powerupList[randomNumberInList];
+            Instantiate(chosenPowerup, transform.position + transform.forward * 3, transform.rotation);
+            chosenPowerup = null;
         }
     }
 }

@@ -1,25 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class TriggerFinishLine : MonoBehaviour
 {
+    public GameObject winMessage;
 
-    public CheckpointCounter checkpointTracker;
 
-    private void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+
+
+        if (other.gameObject.tag == "FinishLine")
         {
-            if (checkpointTracker.triggeredCheckpoints == checkpointTracker.numberOfCheckpoints)
+            //if (checkpointTracker.triggeredCheckpoints == checkpointTracker.numberOfCheckpoints)
+                //{
+                if (winMessage != null)
             {
                 print("You Win!");
+                winMessage.SetActive(true);
             }
             else
             {
-                print("Cheater!");
+                print("Broken.");
             }
+                    
+                //}
+                
+            
         }
+
 
 
         //if (other.CompareTag ("Codey"))
